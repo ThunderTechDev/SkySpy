@@ -75,6 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				037694972AD4A28900086BA1 /* SkySpy */,
+				037694C22AD4A6D700086BA1 /* Model */,
+				037694C32AD4A6E100086BA1 /* View */,
+				037694C42AD4A6E700086BA1 /* ViewModel */,
+				037694C52AD4A74300086BA1 /* Resources */,
 				037694A82AD4A28B00086BA1 /* SkySpyTests */,
 				037694B22AD4A28B00086BA1 /* SkySpyUITests */,
 				037694962AD4A28900086BA1 /* Products */,
@@ -95,8 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				037694982AD4A28900086BA1 /* SkySpyApp.swift */,
-				0376949A2AD4A28900086BA1 /* ContentView.swift */,
-				0376949C2AD4A28A00086BA1 /* Assets.xcassets */,
 				0376949E2AD4A28A00086BA1 /* Preview Content */,
 			);
 			path = SkySpy;
@@ -125,6 +127,36 @@
 				037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */,
 			);
 			path = SkySpyUITests;
+			sourceTree = "<group>";
+		};
+		037694C22AD4A6D700086BA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		037694C32AD4A6E100086BA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0376949A2AD4A28900086BA1 /* ContentView.swift */,
+				0376949C2AD4A28A00086BA1 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		037694C42AD4A6E700086BA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		037694C52AD4A74300086BA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
