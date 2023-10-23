@@ -41,13 +41,34 @@ struct ContentView: View {
            
                 
                 // TextField para el nombre de la ciudad
-                TextField("Introduce el nombre de la ciudad", text: $cityName)
+                HStack() {
+                    TextField("Introduce el nombre de la ciudad", text: $cityName, onCommit: {
+                        // Acción que se ejecuta al pulsar "Enter"
+                        print($cityName.wrappedValue)
+                        $cityName.wrappedValue = ""
+                    })
                     .padding(10)
                     .background(Color(UIColor.secondarySystemBackground).opacity(0.7))
                     .cornerRadius(10)
-                    .padding(.horizontal, 30)
+                    
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
                             radius: 10, x: 0, y: 10)
+                    .textInputAutocapitalization(.words)
+                    
+                    Button(action: {
+                        // Acción que se ejecuta al pulsar el icono de lupa
+                        print($cityName.wrappedValue)
+                        $cityName.wrappedValue = ""
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                            .font(.title)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
+                                    radius: 10, x: 0, y: 10)
+                    }
+                }
+                .padding(.horizontal, 30)
+
                 
                 Spacer()  // Espacio entre el TextField y el área de la imagen
                 
@@ -59,6 +80,7 @@ struct ContentView: View {
                 // Campo de texto para indicar el nombre de la ciudad
                 Text("Ciudad")
                     .font(.title2)
+                   
                  
                 
                 Spacer()  // Espacio entre los campos de texto y el área de la imagen
