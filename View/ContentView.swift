@@ -13,14 +13,18 @@ struct ContentView: View {
     
     @State private var cityName: String = ""
     @State private var currentCity = "City"
+    @State private var placeHolder = "Enter the name of the city"
+    @FocusState private var isFirstResponder :Bool
+    
     @Environment(\.colorScheme) var colorScheme
+    
     
     var body: some View {
         ZStack {
             Image(colorScheme == .dark ? "BackgroundSkySpyDark" : "BackgroundSkySpy")
-                            .resizable(resizingMode: .stretch)
-                            .aspectRatio(contentMode: .fill)
-                            .edgesIgnoringSafeArea(.all)
+                .resizable(resizingMode: .stretch)
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
             
             VStack {
                 // Título de la App
@@ -39,21 +43,29 @@ struct ContentView: View {
                 }
                 .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
                 
-           
+                
                 
                 // TextField para el nombre de la ciudad
                 HStack() {
-                    TextField("Introduce el nombre de la ciudad", text: $cityName, onCommit: {
+                    TextField(placeHolder, text: $cityName, onCommit: {
                         // Acción que se ejecuta al pulsar "Enter"
-                        print(cityName)
-                        currentCity = cityName
-                        DispatchQueue.main.async { cityName = "" }
+                        if cityName != "" {
+                            print(cityName)
+                            currentCity = cityName
+                            DispatchQueue.main.async {
+                                cityName = ""
+                                placeHolder = "Enter the name of the city"
+                            }
+                        } else {
+                            placeHolder = "You Must Enter a City"
+                        }
                         
                     })
                     .padding(10)
                     .background(Color(UIColor.secondarySystemBackground).opacity(0.7))
                     .cornerRadius(10)
-  
+                    .focused($isFirstResponder)
+                    
                     
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
                             radius: 10, x: 0, y: 10)
@@ -73,7 +85,7 @@ struct ContentView: View {
                     }
                 }
                 .padding(.horizontal, 30)
-
+                
                 
                 Spacer()  // Espacio entre el TextField y el área de la imagen
                 
@@ -85,8 +97,8 @@ struct ContentView: View {
                 // Campo de texto para indicar el nombre de la ciudad
                 Text(currentCity)
                     .font(.title2)
-                   
-                 
+                
+                
                 
                 Spacer()  // Espacio entre los campos de texto y el área de la imagen
                 
@@ -105,11 +117,11 @@ struct ContentView: View {
                 
             }
             
+        } .onTapGesture {
+            isFirstResponder = false
         }
     }
 }
-
-
 
 
 #Preview {
