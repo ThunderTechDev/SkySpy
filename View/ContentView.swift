@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var cityName: String = ""
+    @State private var currentCity = "City"
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -44,12 +45,15 @@ struct ContentView: View {
                 HStack() {
                     TextField("Introduce el nombre de la ciudad", text: $cityName, onCommit: {
                         // Acción que se ejecuta al pulsar "Enter"
-                        print($cityName.wrappedValue)
-                        $cityName.wrappedValue = ""
+                        print(cityName)
+                        currentCity = cityName
+                        DispatchQueue.main.async { cityName = "" }
+                        
                     })
                     .padding(10)
                     .background(Color(UIColor.secondarySystemBackground).opacity(0.7))
                     .cornerRadius(10)
+  
                     
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
                             radius: 10, x: 0, y: 10)
@@ -57,8 +61,9 @@ struct ContentView: View {
                     
                     Button(action: {
                         // Acción que se ejecuta al pulsar el icono de lupa
-                        print($cityName.wrappedValue)
-                        $cityName.wrappedValue = ""
+                        print(cityName)
+                        currentCity = cityName
+                        DispatchQueue.main.async { cityName = "" }
                     }) {
                         Image(systemName: "magnifyingglass")
                             .font(.title)
@@ -78,7 +83,7 @@ struct ContentView: View {
                     .fontWeight(.bold)
                 
                 // Campo de texto para indicar el nombre de la ciudad
-                Text("Ciudad")
+                Text(currentCity)
                     .font(.title2)
                    
                  
