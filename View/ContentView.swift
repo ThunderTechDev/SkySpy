@@ -14,115 +14,124 @@ struct ContentView: View {
     @State private var cityName: String = ""
     @State private var currentCity = "City"
     @State private var placeHolder = "Enter the name of the city"
-    @FocusState private var isFirstResponder :Bool
+    @FocusState private var isFirstResponder: Bool
     
     @Environment(\.colorScheme) var colorScheme
     
-    
     var body: some View {
-        ZStack {
-            Image(colorScheme == .dark ? "BackgroundSkySpyDark" : "BackgroundSkySpy")
-                .resizable(resizingMode: .stretch)
-                .aspectRatio(contentMode: .fill)
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                // Título de la App
-                Spacer().frame(height: 50)
-                ZStack {
-                    Text("SkySpy")
-                        .font(Font.custom("SF Compact Rounded", size: 64.0))
-                        .blur(radius: 3.0)
-                        .fontDesign(.rounded)
-                        .fontWeight(.bold)
-                    Text("SkySpy")
-                        .font(Font.custom("SF Compact Rounded", size: 64))
-                        .foregroundStyle(.white)
-                        .fontDesign(.rounded)
-                        .fontWeight(.bold)
-                }
-                .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
-                
-                
-                
-                // TextField para el nombre de la ciudad
-                HStack() {
-                    TextField(placeHolder, text: $cityName, onCommit: {
-                        // Acción que se ejecuta al pulsar "Enter"
-                        if cityName != "" {
-                            print(cityName)
-                            currentCity = cityName
-                            DispatchQueue.main.async {
-                                cityName = ""
-                                placeHolder = "Enter the name of the city"
-                            }
-                        } else {
-                            placeHolder = "You Must Enter a City"
-                        }
-                        
-                    })
-                    .padding(10)
-                    .background(Color(UIColor.secondarySystemBackground).opacity(0.7))
-                    .cornerRadius(10)
-                    .focused($isFirstResponder)
-                    
-                    
-                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
-                            radius: 10, x: 0, y: 10)
-                    .textInputAutocapitalization(.words)
-                    
-                    Button(action: {
-                        // Acción que se ejecuta al pulsar el icono de lupa
-                        print(cityName)
-                        currentCity = cityName
-                        DispatchQueue.main.async { cityName = "" }
-                    }) {
-                        Image(systemName: "magnifyingglass")
-                            .font(.title)
-                            .foregroundColor(colorScheme == .dark ? .white : .black)
-                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
-                                    radius: 10, x: 0, y: 10)
-                    }
-                }
-                .padding(.horizontal, 30)
-                
-                
-                Spacer()  // Espacio entre el TextField y el área de la imagen
-                
-                // Campo de texto grande para los grados de temperatura
-                Text("22°C")  // Puedes vincular esto a una variable si es necesario
-                    .font(.system(size: 70))
-                    .fontWeight(.bold)
-                
-                // Campo de texto para indicar el nombre de la ciudad
-                Text(currentCity)
-                    .font(.title2)
-                
-                
-                
-                Spacer()  // Espacio entre los campos de texto y el área de la imagen
-                
-                // Área para la imagen en la parte inferior
-                ZStack {
-                    RoundedRectangle(cornerRadius: 30)  // Marcos
-                        .fill(Color(UIColor.systemBackground))  // Fondo dinámico
-                        .frame(height: 400)  // Ajusta la altura según lo necesites
-                        .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
-                    RoundedRectangle(cornerRadius: 30)  // Borde
-                        .stroke(lineWidth: 8)
-                        .frame(height: 400)  // Ajusta la altura según lo necesites
-                        .foregroundColor(.gray)
-                }
-                .padding(30)  // Añade un poco de espacio alrededor del área de la imagen
-                
+       
+            ZStack {
+                backgroundImage
+                mainContent
             }
-            
-        } .onTapGesture {
-            isFirstResponder = false
+            .onTapGesture {
+                isFirstResponder = false
+            }.ignoresSafeArea(.keyboard, edges: .bottom)
+    }
+
+        var mainContent: some View {
+            VStack {
+                appTitle
+                cityTextField
+                temperatureDisplay
+                cityNameDisplay
+                imageArea
+            }
+            .padding(.horizontal, 30)
+        }
+
+      
+    // MARK: - UI Components
+    
+    var backgroundImage: some View {
+        Image(colorScheme == .dark ? "BackgroundSkySpyDark" : "BackgroundSkySpy")
+            .resizable(resizingMode: .stretch)
+            .edgesIgnoringSafeArea(.all)
+    }
+    
+    var appTitle: some View {
+        VStack {
+            Spacer().frame(height: 10)
+            ZStack {
+                Text("SkySpy")
+                    .font(Font.custom("SF Compact Rounded", size: 64.0))
+                    .blur(radius: 3.0)
+                    .fontDesign(.rounded)
+                    .fontWeight(.bold)
+                Text("SkySpy")
+                    .font(Font.custom("SF Compact Rounded", size: 64))
+                    .foregroundStyle(.white)
+                    .fontDesign(.rounded)
+                    .fontWeight(.bold)
+            }
+            .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
         }
     }
+    
+    var cityTextField: some View {
+        HStack {
+            TextField(placeHolder, text: $cityName, onCommit: {
+                if cityName != "" {
+                    print(cityName)
+                    currentCity = cityName
+                    DispatchQueue.main.async {
+                        cityName = ""
+                        placeHolder = "Enter the name of the city"
+                    }
+                } else {
+                    placeHolder = "You Must Enter a City"
+                }
+            })
+            .padding(10)
+            .background(Color(UIColor.secondarySystemBackground).opacity(0.7))
+            .cornerRadius(10)
+            .focused($isFirstResponder)
+            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
+                    radius: 10, x: 0, y: 10)
+            .textInputAutocapitalization(.words)
+            
+            searchButton
+        }
+    }
+    
+    var searchButton: some View {
+        Button(action: {
+            print(cityName)
+            currentCity = cityName
+            DispatchQueue.main.async { cityName = "" }
+        }) {
+            Image(systemName: "magnifyingglass")
+                .font(.title)
+                .foregroundColor(colorScheme == .dark ? .white : .black)
+                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
+                        radius: 10, x: 0, y: 10)
+        }
+    }
+    
+    var temperatureDisplay: some View {
+        Text("22°C")  // Puedes vincular esto a una variable si es necesario
+            .font(.system(size: 70))
+            .fontWeight(.bold)
+    }
+    
+    var cityNameDisplay: some View {
+        Text(currentCity)
+            .font(.title2)
+    }
+    
+    var imageArea: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 30)  // Marcos
+                .fill(Color(UIColor.systemBackground))  // Fondo dinámico
+                .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
+            RoundedRectangle(cornerRadius: 30)  // Borde
+                .stroke(lineWidth: 8)
+                .foregroundColor(.gray)
+        }
+       // .padding(.vertical, 30)
+    }
+    
 }
-
 
 #Preview {
     ContentView()
