@@ -15,8 +15,9 @@ struct ContentView: View {
     @State private var currentCity = "City"
     @State private var placeHolder = "Enter the name of the city"
     @FocusState private var isFirstResponder: Bool
-    
     @Environment(\.colorScheme) var colorScheme
+    var weatherManager = WeatherManager()
+    
     
     var body: some View {
        
@@ -72,6 +73,7 @@ struct ContentView: View {
         HStack {
             TextField(placeHolder, text: $cityName, onCommit: {
                 if cityName != "" {
+                    weatherManager.fetchWeather(cityName: cityName)
                     print(cityName)
                     currentCity = cityName
                     DispatchQueue.main.async {
