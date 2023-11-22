@@ -14,9 +14,10 @@ struct ContentView: View {
     @State private var cityName: String = ""
     @State private var currentCity = "City"
     @State private var placeHolder = "Enter the name of the city"
+    @State private var weatherManager = WeatherManager()
     @FocusState private var isFirstResponder: Bool
     @Environment(\.colorScheme) var colorScheme
-    var weatherManager = WeatherManager()
+    
     
     
     var body: some View {
