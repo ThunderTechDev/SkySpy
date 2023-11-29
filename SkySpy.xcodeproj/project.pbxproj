@@ -15,6 +15,7 @@
 		037694AA2AD4A28B00086BA1 /* SkySpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694A92AD4A28B00086BA1 /* SkySpyTests.swift */; };
 		037694B42AD4A28B00086BA1 /* SkySpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */; };
 		037694B62AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */; };
+		03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEF032B17F668003C9783 /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		037694AF2AD4A28B00086BA1 /* SkySpyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkySpyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITests.swift; sourceTree = "<group>"; };
 		037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		03FBEF032B17F668003C9783 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */,
+				03FBEF032B17F668003C9783 /* WeatherData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				0361C6FF2B0D6DAB00074660 /* WeatherManager.swift in Sources */,
 				0376949B2AD4A28900086BA1 /* ContentView.swift in Sources */,
+				03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */,
 				037694992AD4A28900086BA1 /* SkySpyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

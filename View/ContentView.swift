@@ -75,7 +75,7 @@ struct ContentView: View {
             TextField(placeHolder, text: $cityName, onCommit: {
                 if cityName != "" {
                     weatherManager.fetchWeather(cityName: cityName)
-                    print(cityName)
+                    //print(cityName)
                     currentCity = cityName
                     DispatchQueue.main.async {
                         cityName = ""
