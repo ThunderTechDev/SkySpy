@@ -5,9 +5,10 @@
 //  Created by Sergio Gonzalez Cristobal on 21/11/23.
 //
 
-import Foundation
+import SwiftUI
 
 @Observable class WeatherManager {
+    
     
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=36edc21645688e507b7210dd0250ffd5&units=metric"
     
@@ -55,12 +56,23 @@ import Foundation
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            print(decodedData.name)
-            print(decodedData.main.humidity)
+            let id = decodedData.weather[0].id
+            let temp = decodedData.main.temp
+            let name = decodedData.name
+            print(name)
+            print(id)
+            print(temp)
+            
+            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
+            
         } catch {
             print(error)
         }
         
     }
+    
+    
+
+
     
 }
