@@ -64,7 +64,7 @@ import SwiftUI
             print(temp)
             
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
-            
+            print(weather)
         } catch {
             print(error)
         }
