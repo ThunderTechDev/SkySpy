@@ -133,6 +133,7 @@ struct ContentView: View {
             
             
             RoundedRectangle(cornerRadius: 30)  // Marco
+                .stroke() //desativalo para que se ve la imagen
                 .fill(Color(UIColor.systemBackground))  // Fondo dinámico
                 .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
             RoundedRectangle(cornerRadius: 30)  // Borde
