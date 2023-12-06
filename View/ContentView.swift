@@ -75,9 +75,8 @@ struct ContentView: View {
             TextField(placeHolder, text: $cityName, onCommit: {
                 if cityName != "" {
                     weatherManager.fetchWeather(cityName: cityName)
-                    currentCity = cityName
                     DispatchQueue.main.async {
-                        
+                        currentCity = cityName
                         cityName = ""
                         placeHolder = "Enter the name of the city"
                     }
@@ -100,7 +99,7 @@ struct ContentView: View {
     var searchButton: some View {
         Button(action: {
             print(cityName)
-            currentCity = cityName
+            currentCity = weatherManager.currentWeather?.cityName ?? "No se encuentra ciudad"
             DispatchQueue.main.async { cityName = "" }
         }) {
             Image(systemName: "magnifyingglass")
@@ -112,7 +111,7 @@ struct ContentView: View {
     }
     
     var temperatureDisplay: some View {
-        Text("22°C")  // Puedes vincular esto a una variable si es necesario
+        Text(String(format: "%.1fº", weatherManager.currentWeather?.temperature ?? 0.0))
             .font(.system(size: 70))
             .fontWeight(.bold)
     }
@@ -124,14 +123,25 @@ struct ContentView: View {
     
     var imageArea: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 30)  // Marcos
+            
+            if let imageName = weatherManager.currentWeather?.conditionName {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+
+            
+            
+            RoundedRectangle(cornerRadius: 30)  // Marco
                 .fill(Color(UIColor.systemBackground))  // Fondo dinámico
                 .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
             RoundedRectangle(cornerRadius: 30)  // Borde
                 .stroke(lineWidth: 8)
                 .foregroundColor(.gray)
+
+            // Añadiendo la imagen
+           
         }
-       // .padding(.vertical, 30)
     }
     
 }
