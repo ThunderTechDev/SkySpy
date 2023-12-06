@@ -30,13 +30,13 @@ import SwiftUI
                     return
                 }
                 if let safeData = data {
-                    let weather = self.parseJSON(weatherData: safeData) 
+                    _ = self.parseJSON(weatherData: safeData)
                     
                 }
             }
             task.resume()
         }
-    }
+    } 
     
     
     func parseJSON(weatherData: Data) -> WeatherModel? {
