@@ -21,28 +21,28 @@ struct ContentView: View {
     
     
     var body: some View {
-       
-            ZStack {
-                backgroundImage
-                mainContent
-            }
-            .onTapGesture {
-                isFirstResponder = false
-            }.ignoresSafeArea(.keyboard, edges: .bottom)
-    }
-
-        var mainContent: some View {
-            VStack {
-                appTitle
-                cityTextField
-                temperatureDisplay
-                cityNameDisplay
-                imageArea
-            }
-            .padding(.horizontal, 30)
+        
+        ZStack {
+            backgroundImage
+            mainContent
         }
-
-      
+        .onTapGesture {
+            isFirstResponder = false
+        }.ignoresSafeArea(.keyboard, edges: .bottom)
+    }
+    
+    var mainContent: some View {
+        VStack {
+            appTitle
+            cityTextField
+            temperatureDisplay
+            cityNameDisplay
+            imageArea
+        }
+        .padding(.horizontal, 30)
+    }
+    
+    
     // MARK: - UI Components
     
     var backgroundImage: some View {
@@ -122,29 +122,35 @@ struct ContentView: View {
     }
     
     var imageArea: some View {
-        ZStack {
-            
-            if let imageName = weatherManager.currentWeather?.conditionName {
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+        GeometryReader { geometry in
+            ZStack {
+                if let imageName = weatherManager.currentWeather?.conditionName {
+                    // Imagen disponible
+                    Image(imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                    
+                    // Marco con sombra y borde cuando la imagen está presente
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(lineWidth: 8)
+                        .foregroundColor(.gray)
+                } else {
+                    // No hay imagen disponible
+                    RoundedRectangle(cornerRadius: 30)
+                        .fill(Color(UIColor.systemBackground))  // Usando el color de fondo del sistema
+                        .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
+                    
+                    // Marco con sombra y borde cuando no hay imagen
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(lineWidth: 8)
+                        .foregroundColor(.gray)
+                }
             }
-
-            
-            
-            RoundedRectangle(cornerRadius: 30)  // Marco
-                .stroke() //desativalo para que se ve la imagen
-                .fill(Color(UIColor.systemBackground))  // Fondo dinámico
-                .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
-            RoundedRectangle(cornerRadius: 30)  // Borde
-                .stroke(lineWidth: 8)
-                .foregroundColor(.gray)
-
-            // Añadiendo la imagen
-           
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
-    
 }
 
 #Preview {
