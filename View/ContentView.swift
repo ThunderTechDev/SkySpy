@@ -46,7 +46,7 @@ struct ContentView: View {
     // MARK: - UI Components
     
     var backgroundImage: some View {
-        Image(colorScheme == .dark ? "pruebaFondoOscuro" : "pruebaFondo")
+        Image(colorScheme == .dark ? "darkBackground" : "lightBackground")
             .resizable(resizingMode: .stretch)
             .edgesIgnoringSafeArea(.all)
     }
