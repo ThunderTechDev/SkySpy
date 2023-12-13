@@ -1,0 +1,643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0361C6FF2B0D6DAB00074660 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */; };
+		037694992AD4A28900086BA1 /* SkySpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694982AD4A28900086BA1 /* SkySpyApp.swift */; };
+		0376949B2AD4A28900086BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376949A2AD4A28900086BA1 /* ContentView.swift */; };
+		0376949D2AD4A28A00086BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0376949C2AD4A28A00086BA1 /* Assets.xcassets */; };
+		037694A02AD4A28A00086BA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0376949F2AD4A28A00086BA1 /* Preview Assets.xcassets */; };
+		037694AA2AD4A28B00086BA1 /* SkySpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694A92AD4A28B00086BA1 /* SkySpyTests.swift */; };
+		037694B42AD4A28B00086BA1 /* SkySpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */; };
+		037694B62AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */; };
+		03E972B92B1E86F3004D9457 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E972B82B1E86F3004D9457 /* WeatherModel.swift */; };
+		03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEF032B17F668003C9783 /* WeatherData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		037694A62AD4A28B00086BA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0376948D2AD4A28900086BA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 037694942AD4A28900086BA1;
+			remoteInfo = SkySpy;
+		};
+		037694B02AD4A28B00086BA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0376948D2AD4A28900086BA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 037694942AD4A28900086BA1;
+			remoteInfo = SkySpy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		037694952AD4A28900086BA1 /* SkySpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkySpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		037694982AD4A28900086BA1 /* SkySpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyApp.swift; sourceTree = "<group>"; };
+		0376949A2AD4A28900086BA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0376949C2AD4A28A00086BA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0376949F2AD4A28A00086BA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		037694A52AD4A28B00086BA1 /* SkySpyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkySpyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		037694A92AD4A28B00086BA1 /* SkySpyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyTests.swift; sourceTree = "<group>"; };
+		037694AF2AD4A28B00086BA1 /* SkySpyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkySpyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITests.swift; sourceTree = "<group>"; };
+		037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		03E972B82B1E86F3004D9457 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		03FBEF032B17F668003C9783 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		037694922AD4A28900086BA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		037694A22AD4A28B00086BA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		037694AC2AD4A28B00086BA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0376948C2AD4A28900086BA1 = {
+			isa = PBXGroup;
+			children = (
+				037694972AD4A28900086BA1 /* SkySpy */,
+				037694C22AD4A6D700086BA1 /* Model */,
+				037694C32AD4A6E100086BA1 /* View */,
+				037694C42AD4A6E700086BA1 /* ViewModel */,
+				037694C52AD4A74300086BA1 /* Resources */,
+				037694A82AD4A28B00086BA1 /* SkySpyTests */,
+				037694B22AD4A28B00086BA1 /* SkySpyUITests */,
+				037694962AD4A28900086BA1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		037694962AD4A28900086BA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				037694952AD4A28900086BA1 /* SkySpy.app */,
+				037694A52AD4A28B00086BA1 /* SkySpyTests.xctest */,
+				037694AF2AD4A28B00086BA1 /* SkySpyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		037694972AD4A28900086BA1 /* SkySpy */ = {
+			isa = PBXGroup;
+			children = (
+				037694982AD4A28900086BA1 /* SkySpyApp.swift */,
+				0376949E2AD4A28A00086BA1 /* Preview Content */,
+			);
+			path = SkySpy;
+			sourceTree = "<group>";
+		};
+		0376949E2AD4A28A00086BA1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0376949F2AD4A28A00086BA1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		037694A82AD4A28B00086BA1 /* SkySpyTests */ = {
+			isa = PBXGroup;
+			children = (
+				037694A92AD4A28B00086BA1 /* SkySpyTests.swift */,
+			);
+			path = SkySpyTests;
+			sourceTree = "<group>";
+		};
+		037694B22AD4A28B00086BA1 /* SkySpyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */,
+				037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */,
+			);
+			path = SkySpyUITests;
+			sourceTree = "<group>";
+		};
+		037694C22AD4A6D700086BA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */,
+				03FBEF032B17F668003C9783 /* WeatherData.swift */,
+				03E972B82B1E86F3004D9457 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		037694C32AD4A6E100086BA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0376949A2AD4A28900086BA1 /* ContentView.swift */,
+				0376949C2AD4A28A00086BA1 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		037694C42AD4A6E700086BA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		037694C52AD4A74300086BA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		037694942AD4A28900086BA1 /* SkySpy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 037694B92AD4A28B00086BA1 /* Build configuration list for PBXNativeTarget "SkySpy" */;
+			buildPhases = (
+				037694912AD4A28900086BA1 /* Sources */,
+				037694922AD4A28900086BA1 /* Frameworks */,
+				037694932AD4A28900086BA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkySpy;
+			productName = SkySpy;
+			productReference = 037694952AD4A28900086BA1 /* SkySpy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		037694A42AD4A28B00086BA1 /* SkySpyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 037694BC2AD4A28B00086BA1 /* Build configuration list for PBXNativeTarget "SkySpyTests" */;
+			buildPhases = (
+				037694A12AD4A28B00086BA1 /* Sources */,
+				037694A22AD4A28B00086BA1 /* Frameworks */,
+				037694A32AD4A28B00086BA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				037694A72AD4A28B00086BA1 /* PBXTargetDependency */,
+			);
+			name = SkySpyTests;
+			productName = SkySpyTests;
+			productReference = 037694A52AD4A28B00086BA1 /* SkySpyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		037694AE2AD4A28B00086BA1 /* SkySpyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 037694BF2AD4A28B00086BA1 /* Build configuration list for PBXNativeTarget "SkySpyUITests" */;
+			buildPhases = (
+				037694AB2AD4A28B00086BA1 /* Sources */,
+				037694AC2AD4A28B00086BA1 /* Frameworks */,
+				037694AD2AD4A28B00086BA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				037694B12AD4A28B00086BA1 /* PBXTargetDependency */,
+			);
+			name = SkySpyUITests;
+			productName = SkySpyUITests;
+			productReference = 037694AF2AD4A28B00086BA1 /* SkySpyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0376948D2AD4A28900086BA1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					037694942AD4A28900086BA1 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					037694A42AD4A28B00086BA1 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 037694942AD4A28900086BA1;
+					};
+					037694AE2AD4A28B00086BA1 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 037694942AD4A28900086BA1;
+					};
+				};
+			};
+			buildConfigurationList = 037694902AD4A28900086BA1 /* Build configuration list for PBXProject "SkySpy" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0376948C2AD4A28900086BA1;
+			productRefGroup = 037694962AD4A28900086BA1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				037694942AD4A28900086BA1 /* SkySpy */,
+				037694A42AD4A28B00086BA1 /* SkySpyTests */,
+				037694AE2AD4A28B00086BA1 /* SkySpyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		037694932AD4A28900086BA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				037694A02AD4A28A00086BA1 /* Preview Assets.xcassets in Resources */,
+				0376949D2AD4A28A00086BA1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		037694A32AD4A28B00086BA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		037694AD2AD4A28B00086BA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		037694912AD4A28900086BA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0361C6FF2B0D6DAB00074660 /* WeatherManager.swift in Sources */,
+				0376949B2AD4A28900086BA1 /* ContentView.swift in Sources */,
+				03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */,
+				037694992AD4A28900086BA1 /* SkySpyApp.swift in Sources */,
+				03E972B92B1E86F3004D9457 /* WeatherModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		037694A12AD4A28B00086BA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				037694AA2AD4A28B00086BA1 /* SkySpyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		037694AB2AD4A28B00086BA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				037694B42AD4A28B00086BA1 /* SkySpyUITests.swift in Sources */,
+				037694B62AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		037694A72AD4A28B00086BA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 037694942AD4A28900086BA1 /* SkySpy */;
+			targetProxy = 037694A62AD4A28B00086BA1 /* PBXContainerItemProxy */;
+		};
+		037694B12AD4A28B00086BA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 037694942AD4A28900086BA1 /* SkySpy */;
+			targetProxy = 037694B02AD4A28B00086BA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		037694B72AD4A28B00086BA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		037694B82AD4A28B00086BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		037694BA2AD4A28B00086BA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SkySpy/Preview Content\"";
+				DEVELOPMENT_TEAM = 6Z3S569SKT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		037694BB2AD4A28B00086BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SkySpy/Preview Content\"";
+				DEVELOPMENT_TEAM = 6Z3S569SKT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		037694BD2AD4A28B00086BA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z3S569SKT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkySpy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkySpy";
+			};
+			name = Debug;
+		};
+		037694BE2AD4A28B00086BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z3S569SKT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkySpy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkySpy";
+			};
+			name = Release;
+		};
+		037694C02AD4A28B00086BA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z3S569SKT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SkySpy;
+			};
+			name = Debug;
+		};
+		037694C12AD4A28B00086BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z3S569SKT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SkySpy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		037694902AD4A28900086BA1 /* Build configuration list for PBXProject "SkySpy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				037694B72AD4A28B00086BA1 /* Debug */,
+				037694B82AD4A28B00086BA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		037694B92AD4A28B00086BA1 /* Build configuration list for PBXNativeTarget "SkySpy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				037694BA2AD4A28B00086BA1 /* Debug */,
+				037694BB2AD4A28B00086BA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		037694BC2AD4A28B00086BA1 /* Build configuration list for PBXNativeTarget "SkySpyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				037694BD2AD4A28B00086BA1 /* Debug */,
+				037694BE2AD4A28B00086BA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		037694BF2AD4A28B00086BA1 /* Build configuration list for PBXNativeTarget "SkySpyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				037694C02AD4A28B00086BA1 /* Debug */,
+				037694C12AD4A28B00086BA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0376948D2AD4A28900086BA1 /* Project object */;
+}
