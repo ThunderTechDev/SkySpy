@@ -9,6 +9,7 @@ import SwiftUI
 
 @Observable class WeatherManager {
     
+    var isDaytime: Bool = true
     var currentWeather: WeatherModel?
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=36edc21645688e507b7210dd0250ffd5&units=metric"
     
@@ -51,6 +52,7 @@ import SwiftUI
             
             let sunriseDateString = dateFormatter(unixDate: sunrise)
             let sunsetDateString = dateFormatter(unixDate: sunset)
+            updateDaytimeStatus(sunrise: decodedData.sys.sunrise, sunset: decodedData.sys.sunset)
             
             print(name)
             print(id)
@@ -86,7 +88,20 @@ import SwiftUI
         
     }
     
-    
+    func updateDaytimeStatus(sunrise: Double, sunset: Double) {
+            let currentDate = Date()
+            let sunriseDate = Date(timeIntervalSince1970: sunrise)
+            let sunsetDate = Date(timeIntervalSince1970: sunset)
+
+            // Comprobar si la hora actual está entre la salida y la puesta del sol
+            if currentDate >= sunriseDate && currentDate <= sunsetDate {
+                isDaytime = true
+                print("Is Daytime?: \(isDaytime)")
+            } else {
+                isDaytime = false
+                print("Is Daytime?: \(isDaytime)")
+            }
+        }
 
 
     

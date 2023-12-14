@@ -5,13 +5,14 @@
 //  Created by Sergio Gonzalez Cristobal on 4/12/23.
 //
 
-import Foundation
+import SwiftUI
 
-@Observable class WeatherModel {
+class WeatherModel {
     
     let conditionId: Int
     let cityName: String
     let temperature: Double
+   
     
     init(conditionId: Int, cityName: String, temperature: Double) {
         self.conditionId = conditionId
@@ -21,25 +22,28 @@ import Foundation
 
     
     var conditionName: String {
+        let imageName: String
         switch conditionId {
         case 200...232:
-            return "thunderstorm.png"
+            imageName = "thunderstorm"
         case 300...321:
-            return "drizzle.png"
+            imageName = "drizzle"
         case 500...531:
-            return "rain.png"
+            imageName = "rain"
         case 600...622:
-            return "snow.png"
+            imageName = "snow"
         case 700...781:
-            return "fog.png"
+            imageName = "fog"
         case 800:
-            return "sun.png"
+            imageName = "sun"
         case 801...804:
-            return "few clouds.png"
+            imageName = "few clouds"
         default:
-            return "cloud.png"
-            
+            imageName = "cloud"
         }
+
+       return imageName
     }
+    
     
 }

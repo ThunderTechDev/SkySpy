@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var placeHolder = "Enter the name of the city"
     @State private var weatherManager = WeatherManager()
     @FocusState private var isFirstResponder: Bool
-    @Environment(\.colorScheme) var colorScheme
+
     
     
     
@@ -46,7 +46,7 @@ struct ContentView: View {
     // MARK: - UI Components
     
     var backgroundImage: some View {
-        Image(colorScheme == .dark ? "darkBackground" : "lightBackground")
+        Image(weatherManager.isDaytime == false ? "darkBackground" : "lightBackground")
             .resizable(resizingMode: .stretch)
             .edgesIgnoringSafeArea(.all)
     }
@@ -88,8 +88,8 @@ struct ContentView: View {
             .background(Color(UIColor.secondarySystemBackground).opacity(0.7))
             .cornerRadius(10)
             .focused($isFirstResponder)
-            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
-                    radius: 10, x: 0, y: 10)
+            .shadow(color: weatherManager.isDaytime == false ? Color.white.opacity(0.5) : Color.black.opacity(0.5),
+                    radius: 15)
             .textInputAutocapitalization(.words)
             
             searchButton
@@ -104,9 +104,9 @@ struct ContentView: View {
         }) {
             Image(systemName: "magnifyingglass")
                 .font(.title)
-                .foregroundColor(colorScheme == .dark ? .white : .black)
-                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.6),
-                        radius: 10, x: 0, y: 10)
+                .foregroundColor(weatherManager.isDaytime  ? .black : .white)
+                .shadow(color: weatherManager.isDaytime == false ? .white : Color.black.opacity(0.5),
+                        radius: 6)
         }
     }
     
@@ -114,23 +114,32 @@ struct ContentView: View {
         Text(String(format: "%.1fº", weatherManager.currentWeather?.temperature ?? 0.0))
             .font(.system(size: 70))
             .fontWeight(.bold)
+            .foregroundColor(weatherManager.isDaytime  ? .black : .white)
+            
+        
     }
     
     var cityNameDisplay: some View {
         Text(currentCity)
             .font(.title2)
+            .foregroundColor(weatherManager.isDaytime  ? .black : .white)
+            .shadow(color: weatherManager.isDaytime ? .white : .black,
+                    radius: 4)
     }
     
     var imageArea: some View {
+        
         GeometryReader { geometry in
             ZStack {
                 if let imageName = weatherManager.currentWeather?.conditionName {
                     // Imagen disponible
-                    Image(imageName)
+                    Image(weatherManager.isDaytime ? "\(imageName).png" : "\(imageName)_night.png")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: geometry.size.height)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
+                    
+                   
                     
                     // Marco con sombra y borde cuando la imagen está presente
                     RoundedRectangle(cornerRadius: 30)
