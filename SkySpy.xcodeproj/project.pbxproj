@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0361C6FF2B0D6DAB00074660 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */; };
 		037694992AD4A28900086BA1 /* SkySpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694982AD4A28900086BA1 /* SkySpyApp.swift */; };
 		0376949B2AD4A28900086BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376949A2AD4A28900086BA1 /* ContentView.swift */; };
 		0376949D2AD4A28A00086BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0376949C2AD4A28A00086BA1 /* Assets.xcassets */; };
@@ -14,6 +15,8 @@
 		037694AA2AD4A28B00086BA1 /* SkySpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694A92AD4A28B00086BA1 /* SkySpyTests.swift */; };
 		037694B42AD4A28B00086BA1 /* SkySpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */; };
 		037694B62AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */; };
+		03E972B92B1E86F3004D9457 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E972B82B1E86F3004D9457 /* WeatherModel.swift */; };
+		03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEF032B17F668003C9783 /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		037694952AD4A28900086BA1 /* SkySpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkySpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		037694982AD4A28900086BA1 /* SkySpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyApp.swift; sourceTree = "<group>"; };
 		0376949A2AD4A28900086BA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		037694AF2AD4A28B00086BA1 /* SkySpyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkySpyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITests.swift; sourceTree = "<group>"; };
 		037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		03E972B82B1E86F3004D9457 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		03FBEF032B17F668003C9783 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,10 @@
 			isa = PBXGroup;
 			children = (
 				037694972AD4A28900086BA1 /* SkySpy */,
+				037694C22AD4A6D700086BA1 /* Model */,
+				037694C32AD4A6E100086BA1 /* View */,
+				037694C42AD4A6E700086BA1 /* ViewModel */,
+				037694C52AD4A74300086BA1 /* Resources */,
 				037694A82AD4A28B00086BA1 /* SkySpyTests */,
 				037694B22AD4A28B00086BA1 /* SkySpyUITests */,
 				037694962AD4A28900086BA1 /* Products */,
@@ -95,8 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				037694982AD4A28900086BA1 /* SkySpyApp.swift */,
-				0376949A2AD4A28900086BA1 /* ContentView.swift */,
-				0376949C2AD4A28A00086BA1 /* Assets.xcassets */,
 				0376949E2AD4A28A00086BA1 /* Preview Content */,
 			);
 			path = SkySpy;
@@ -125,6 +133,39 @@
 				037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */,
 			);
 			path = SkySpyUITests;
+			sourceTree = "<group>";
+		};
+		037694C22AD4A6D700086BA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */,
+				03FBEF032B17F668003C9783 /* WeatherData.swift */,
+				03E972B82B1E86F3004D9457 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		037694C32AD4A6E100086BA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0376949A2AD4A28900086BA1 /* ContentView.swift */,
+				0376949C2AD4A28A00086BA1 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		037694C42AD4A6E700086BA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		037694C52AD4A74300086BA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0361C6FF2B0D6DAB00074660 /* WeatherManager.swift in Sources */,
 				0376949B2AD4A28900086BA1 /* ContentView.swift in Sources */,
+				03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */,
 				037694992AD4A28900086BA1 /* SkySpyApp.swift in Sources */,
+				03E972B92B1E86F3004D9457 /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,8 +472,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,9 +481,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,8 +504,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,9 +513,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThunderTechDev.SkySpy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
