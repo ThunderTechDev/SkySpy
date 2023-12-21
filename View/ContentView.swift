@@ -141,7 +141,7 @@ struct ContentView: View {
                     
                    
                     
-                    // Marco con sombra y borde cuando la imagen está presente
+                    // Marco con sombra y borde cuando la imagen está
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(lineWidth: 8)
                         .foregroundColor(.gray)
