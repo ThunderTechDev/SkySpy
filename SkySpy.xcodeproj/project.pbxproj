@@ -83,6 +83,7 @@
 				037694972AD4A28900086BA1 /* SkySpy */,
 				037694C22AD4A6D700086BA1 /* Model */,
 				037694C32AD4A6E100086BA1 /* View */,
+				03EDF2642B37C03B002E4273 /* ViewModel */,
 				037694A82AD4A28B00086BA1 /* SkySpyTests */,
 				037694B22AD4A28B00086BA1 /* SkySpyUITests */,
 				037694962AD4A28900086BA1 /* Products */,
@@ -138,7 +139,6 @@
 			children = (
 				0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */,
 				03FBEF032B17F668003C9783 /* WeatherData.swift */,
-				03E972B82B1E86F3004D9457 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +150,14 @@
 				0376949C2AD4A28A00086BA1 /* Assets.xcassets */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		03EDF2642B37C03B002E4273 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				03E972B82B1E86F3004D9457 /* WeatherModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
