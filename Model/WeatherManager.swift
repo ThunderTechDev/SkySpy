@@ -9,36 +9,30 @@ import SwiftUI
 
 @Observable class WeatherManager {
     
+    var cityName: String = ""
+    var placeHolder = "Enter the name of the city"
+    var currentCity = "City"
     var isDaytime: Bool = true
+    var cityError = false
     var currentWeather: WeatherModel?
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=36edc21645688e507b7210dd0250ffd5&units=metric"
     
-    func fetchWeather (cityName: String) {
+    func fetchWeather(cityName: String) async -> Bool {
         let urlString = "\(weatherURL)&q=\(cityName)"
-        //print(urlString)
-        performRequest(urlString: urlString)
+        return await performRequest(urlString: urlString)
     }
     
     
-    
-    func performRequest (urlString: String) {
+    func performRequest(urlString: String) async -> Bool {
+        guard let url = URL(string: urlString) else { return false }
 
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default)
-            let task =  session.dataTask(with: url) { data, response, error in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                if let safeData = data {
-                    _ = self.parseJSON(weatherData: safeData)
-                    
-                }
-            }
-            task.resume()
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return parseJSON(weatherData: data) != nil
+        } catch {
+            return false
         }
-    } 
-    
+    }
     
     func parseJSON(weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
@@ -66,6 +60,7 @@ import SwiftUI
             }
             return weather
         } catch {
+            cityError = true
             print(error)
             return nil
         }
@@ -102,7 +97,8 @@ import SwiftUI
                 print("Is Daytime?: \(isDaytime)")
             }
         }
-
-
     
+
+
+  
 }

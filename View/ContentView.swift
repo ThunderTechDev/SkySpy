@@ -11,10 +11,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var cityName: String = ""
-    @State private var currentCity = "City"
-    @State private var placeHolder = "Enter the name of the city"
     @State private var weatherManager = WeatherManager()
+    @State private var cityName: String = ""
+    @State private var currentCity: String = "City"
+    @State private var placeHolder = "Enter the name of the city"
     @FocusState private var isFirstResponder: Bool
 
     
@@ -73,17 +73,9 @@ struct ContentView: View {
     var cityTextField: some View {
         HStack {
             TextField(placeHolder, text: $cityName, onCommit: {
-                if cityName != "" {
-                    weatherManager.fetchWeather(cityName: cityName)
-                    DispatchQueue.main.async {
-                        currentCity = cityName
-                        cityName = ""
-                        placeHolder = "Enter the name of the city"
-                    }
-                } else {
-                    placeHolder = "You Must Enter a City"
-                }
+                searchCity()
             })
+            .autocorrectionDisabled()
             .padding(10)
             .background(Color(UIColor.secondarySystemBackground).opacity(0.7))
             .cornerRadius(10)
@@ -98,9 +90,7 @@ struct ContentView: View {
     
     var searchButton: some View {
         Button(action: {
-            print(cityName)
-            currentCity = weatherManager.currentWeather?.cityName ?? "No se encuentra ciudad"
-            DispatchQueue.main.async { cityName = "" }
+            searchCity()
         }) {
             Image(systemName: "magnifyingglass")
                 .font(.title)
@@ -148,7 +138,7 @@ struct ContentView: View {
                 } else {
                     // No hay imagen disponible
                     RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(UIColor.systemBackground))  // Usando el color de fondo del sistema
+                        .fill(Color(weatherManager.isDaytime == false ? UIColor.black : UIColor.white))
                         .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
                     
                     // Marco con sombra y borde cuando no hay imagen
@@ -158,6 +148,21 @@ struct ContentView: View {
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
+        }
+    }
+    
+    private func searchCity() {
+        Task {
+            let success = await weatherManager.fetchWeather(cityName: cityName)
+            DispatchQueue.main.async {
+                if success {
+                    currentCity = cityName
+                } else {
+                    currentCity = "No se encuentra ciudad"
+                }
+                cityName = ""
+                placeHolder = "Enter the name of the city"
+            }
         }
     }
 }
