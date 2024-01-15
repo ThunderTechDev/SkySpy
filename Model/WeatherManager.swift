@@ -43,16 +43,17 @@ import SwiftUI
             let name = decodedData.name
             let sunrise = decodedData.sys.sunrise
             let sunset = decodedData.sys.sunset
+            let dt = decodedData.dt
+            let timezone = decodedData.timezone
+          
             
-            let sunriseDateString = dateFormatter(unixDate: sunrise)
-            let sunsetDateString = dateFormatter(unixDate: sunset)
-            updateDaytimeStatus(sunrise: decodedData.sys.sunrise, sunset: decodedData.sys.sunset)
+            updateDaytimeStatus(sunrise: decodedData.sys.sunrise, sunset: decodedData.sys.sunset, dt: decodedData.dt, timezoneOffset: timezone)
+
             
             print(name)
             print(id)
             print(temp)
-            print("The sunrise hour is \(sunriseDateString)")
-            print("The sunset hour is \(sunsetDateString)")
+            
             
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
             DispatchQueue.main.async {
@@ -67,36 +68,26 @@ import SwiftUI
     }
     
     
-    func dateFormatter(unixDate: Double) -> String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .medium
+    func updateDaytimeStatus(sunrise: Double, sunset: Double, dt: Double, timezoneOffset: Int) {
+        let currentDate = Date(timeIntervalSince1970: dt + Double(timezoneOffset))
+        let localSunriseDate = Date(timeIntervalSince1970: sunrise + Double(timezoneOffset))
+        let localSunsetDate = Date(timeIntervalSince1970: sunset + Double(timezoneOffset))
 
-        let formattedDate = Date(timeIntervalSince1970: unixDate)
-        
 
-        let conversedDateToString = dateFormatter.string(from: formattedDate)
-        
-        return conversedDateToString
-        
+        // Imprimir las horas convertidas
+        print("Local Date Time: \(currentDate)")
+        print("Local Sunrise Time: \(localSunriseDate)")
+        print("Local Sunset Time: \(localSunsetDate)")
+
+        // Comprobar si la hora actual (en tu zona horaria local) está entre la salida y la puesta del sol (en la zona horaria de la ciudad)
+        isDaytime = currentDate >= localSunriseDate && currentDate <= localSunsetDate
+        print("Is Daytime?: \(isDaytime)")
     }
-    
-    func updateDaytimeStatus(sunrise: Double, sunset: Double) {
-            let currentDate = Date()
-            let sunriseDate = Date(timeIntervalSince1970: sunrise)
-            let sunsetDate = Date(timeIntervalSince1970: sunset)
 
-            // Comprobar si la hora actual está entre la salida y la puesta del sol
-            if currentDate >= sunriseDate && currentDate <= sunsetDate {
-                isDaytime = true
-                print("Is Daytime?: \(isDaytime)")
-            } else {
-                isDaytime = false
-                print("Is Daytime?: \(isDaytime)")
-            }
-        }
+    
+
+    // Asegúrate de que la función dateFormatter esté configurada correctamente para manejar la zona horaria.
+
     
 
 

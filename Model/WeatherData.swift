@@ -12,6 +12,8 @@ struct WeatherData: Decodable {
     let main: Main
     let sys: Sys
     let weather: [Weather]
+    let dt: Double
+    let timezone: Int
 }
 
 struct Main: Decodable {
