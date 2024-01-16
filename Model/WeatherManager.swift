@@ -47,7 +47,7 @@ import SwiftUI
             let timezone = decodedData.timezone
           
             
-            updateDaytimeStatus(sunrise: decodedData.sys.sunrise, sunset: decodedData.sys.sunset, dt: decodedData.dt, timezoneOffset: timezone)
+            updateDaytimeStatus(sunrise: sunrise, sunset: sunset, dt: dt, timezoneOffset: timezone)
 
             
             print(name)
