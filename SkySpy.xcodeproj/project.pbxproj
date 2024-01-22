@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0339D06B2B59EED900C11D2A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339D06A2B59EED900C11D2A /* LocationManager.swift */; };
+		0339D06D2B59F46B00C11D2A /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339D06C2B59F46B00C11D2A /* LocationData.swift */; };
 		0361C6FF2B0D6DAB00074660 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */; };
 		037694992AD4A28900086BA1 /* SkySpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694982AD4A28900086BA1 /* SkySpyApp.swift */; };
 		0376949B2AD4A28900086BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376949A2AD4A28900086BA1 /* ContentView.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0339D06A2B59EED900C11D2A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0339D06C2B59F46B00C11D2A /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		037694952AD4A28900086BA1 /* SkySpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkySpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		037694982AD4A28900086BA1 /* SkySpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyApp.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			children = (
 				0361C6FE2B0D6DAB00074660 /* WeatherManager.swift */,
 				03FBEF032B17F668003C9783 /* WeatherData.swift */,
+				0339D06C2B59F46B00C11D2A /* LocationData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				03E972B82B1E86F3004D9457 /* WeatherModel.swift */,
+				0339D06A2B59EED900C11D2A /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -292,7 +298,9 @@
 			files = (
 				0361C6FF2B0D6DAB00074660 /* WeatherManager.swift in Sources */,
 				0376949B2AD4A28900086BA1 /* ContentView.swift in Sources */,
+				0339D06B2B59EED900C11D2A /* LocationManager.swift in Sources */,
 				03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */,
+				0339D06D2B59F46B00C11D2A /* LocationData.swift in Sources */,
 				037694992AD4A28900086BA1 /* SkySpyApp.swift in Sources */,
 				03E972B92B1E86F3004D9457 /* WeatherModel.swift in Sources */,
 			);

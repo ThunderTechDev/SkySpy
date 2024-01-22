@@ -15,16 +15,20 @@ struct ContentView: View {
     @State private var cityName: String = ""
     @State private var currentCity: String = "City"
     @State private var placeHolder = "Enter the name of the city"
+    @StateObject private var locationManager = LocationManager()
     @FocusState private var isFirstResponder: Bool
 
     
     
     
     var body: some View {
-        
+    
         ZStack {
             backgroundImage
             mainContent
+        }
+        .onAppear {
+            print(locationManager.cityName)
         }
         .onTapGesture {
             isFirstResponder = false
