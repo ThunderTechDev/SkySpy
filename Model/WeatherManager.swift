@@ -15,7 +15,7 @@ import SwiftUI
     var isDaytime: Bool = true
     var cityError = false
     var currentWeather: WeatherModel?
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=36edc21645688e507b7210dd0250ffd5&units=metric"
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=36edc21645688e507b7210dd0250ffd51&units=metric"
     
     func fetchWeather(cityName: String) async -> Bool {
         let urlString = "\(weatherURL)&q=\(cityName)"
