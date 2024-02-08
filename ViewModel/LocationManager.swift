@@ -8,15 +8,15 @@
 import Foundation
 import CoreLocation
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
-    @Published var cityName: String = "Cargando..."
+@Observable class LocationManager: NSObject, CLLocationManagerDelegate {
+    let locationManager = CLLocationManager()
+    var cityName: String = "Cargando..."
 
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization() // Solicita permiso al usuario
-        locationManager.startUpdatingLocation() // Comienza a obtener la ubicación
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -25,7 +25,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    private func updateCityName(from location: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error al obtener la ubicación: \(error.localizedDescription)")
+    }
+    
+    func updateCityName(from location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {
                 print("Error en Geocoding: \(error.localizedDescription)")
@@ -40,9 +44,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error al obtener la ubicación: \(error.localizedDescription)")
-    }
+   
 }
 
 

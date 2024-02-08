@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var cityName: String = ""
     @State private var currentCity: String = "City"
     @State private var placeHolder = "Enter the name of the city"
-    @StateObject private var locationManager = LocationManager()
+    @State private var locationManager = LocationManager()
     @FocusState private var isFirstResponder: Bool
 
     
@@ -79,6 +79,7 @@ struct ContentView: View {
         
         var cityTextField: some View {
             HStack {
+                localPlaceButton
                 TextField(placeHolder, text: $cityName, onCommit: {
                     searchCity()
                 })
@@ -123,7 +124,21 @@ struct ContentView: View {
                 .shadow(color: weatherManager.isDaytime ? .white : .black,
                         radius: 4)
         }
+    
+    var localPlaceButton: some View {
+        Button(action: {
+            locationManager.locationManager.startUpdatingLocation()
+            cityName = locationManager.cityName
+            searchCity()
+            
+        }) {Image(systemName: "mappin.and.ellipse")
+                .font(.title)
+                .foregroundColor(weatherManager.isDaytime  ? .black : .white)
+                .shadow(color: weatherManager.isDaytime == false ? .white : Color.black.opacity(0.5),
+                        radius: 6)
+        }
         
+    }
         var imageArea: some View {
             
             GeometryReader { geometry in
