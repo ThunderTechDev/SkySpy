@@ -25,7 +25,7 @@ import SwiftUI
     
     func performRequest(urlString: String) async -> Bool {
         guard let url = URL(string: urlString) else { return false }
-
+        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             return parseJSON(weatherData: data) != nil
@@ -45,13 +45,12 @@ import SwiftUI
             let sunset = decodedData.sys.sunset
             let dt = decodedData.dt
             let timezone = decodedData.timezone
-          
+            
             
             updateDaytimeStatus(sunrise: sunrise, sunset: sunset, dt: dt, timezoneOffset: timezone)
-
             
+            print("El código de imagen es \(id)")
             print(name)
-            print(id)
             print(temp)
             
             
@@ -62,7 +61,7 @@ import SwiftUI
             return weather
         } catch {
             cityError = true
-            print(error)
+            print("Aquí imprimo el error \(error)")
             return nil
         }
     }
@@ -72,24 +71,13 @@ import SwiftUI
         let currentDate = Date(timeIntervalSince1970: dt + Double(timezoneOffset))
         let localSunriseDate = Date(timeIntervalSince1970: sunrise + Double(timezoneOffset))
         let localSunsetDate = Date(timeIntervalSince1970: sunset + Double(timezoneOffset))
-
-
-        // Imprimir las horas convertidas
+        
         print("Local Date Time: \(currentDate)")
         print("Local Sunrise Time: \(localSunriseDate)")
         print("Local Sunset Time: \(localSunsetDate)")
-
-        // Comprobar si la hora actual (en tu zona horaria local) está entre la salida y la puesta del sol (en la zona horaria de la ciudad)
+        
         isDaytime = currentDate >= localSunriseDate && currentDate <= localSunsetDate
         print("Is Daytime?: \(isDaytime)")
     }
-
     
-
-    // Asegúrate de que la función dateFormatter esté configurada correctamente para manejar la zona horaria.
-
-    
-
-
-  
 }
