@@ -143,16 +143,17 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 if weatherManager.cityError {
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(weatherManager.isDaytime ? .white : .black).opacity(0.8))
+                    
+                    Image("errorImage.png")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(lineWidth: 8)
                         .foregroundColor(.gray)
-                    Text("Error")
-                        .font(.title)
-                        .foregroundColor(weatherManager.isDaytime ? .black : .white)
-                        .opacity(0.7)
+                    
                 } else if let imageName = weatherManager.currentWeather?.conditionName {
                     Image(weatherManager.isDaytime ? "\(imageName).png" : "\(imageName)_night.png")
                         .resizable()
