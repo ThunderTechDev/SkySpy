@@ -26,6 +26,14 @@ struct ContentView: View {
             backgroundImage
             mainContent
         }
+        
+        .onAppear() {
+            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { _ in
+                locationManager.locationManager.startUpdatingLocation()
+                cityName = locationManager.cityName
+                searchCity()
+            }
+        }
         .onChange(of: locationManager.cityName, {
             cityName = locationManager.cityName
             searchCity()
