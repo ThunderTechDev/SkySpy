@@ -30,13 +30,11 @@ struct ContentView: View {
         .onAppear() {
             NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { _ in
                 locationManager.locationManager.startUpdatingLocation()
-                cityName = locationManager.cityName
-                searchCity()
+                searchCity(cityForSearch: locationManager.cityName)
             }
         }
         .onChange(of: locationManager.cityName, {
-            cityName = locationManager.cityName
-            searchCity()
+            searchCity(cityForSearch: locationManager.cityName)
         })
         .onTapGesture {
             isFirstResponder = false
@@ -88,7 +86,7 @@ struct ContentView: View {
         HStack {
             localPlaceButton
             TextField(placeHolder, text: $cityName, onCommit: {
-                searchCity()
+                searchCity(cityForSearch: cityName)
             })
             .autocorrectionDisabled()
             .padding(10)
@@ -105,7 +103,7 @@ struct ContentView: View {
     
     var searchButton: some View {
         Button(action: {
-            searchCity()
+            searchCity(cityForSearch: cityName)
         }) {
             Image(systemName: "magnifyingglass")
                 .font(.title)
@@ -135,8 +133,7 @@ struct ContentView: View {
     var localPlaceButton: some View {
         Button(action: {
             locationManager.locationManager.startUpdatingLocation()
-            cityName = locationManager.cityName
-            searchCity()
+            searchCity(cityForSearch: locationManager.cityName)
             
         }) {Image(systemName: "mappin.and.ellipse")
                 .font(.title)
@@ -150,6 +147,17 @@ struct ContentView: View {
     var imageArea: some View {
         GeometryReader { geometry in
             ZStack {
+                
+                RoundedRectangle(cornerRadius: 30)
+                    .stroke(lineWidth: 15)
+                    .foregroundColor(.gray)
+                Image("loadingImage.png")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                
+                
                 if weatherManager.cityError {
                     
                     Image("errorImage.png")
@@ -168,23 +176,23 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: geometry.size.height)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(lineWidth: 8)
-                        .foregroundColor(.gray)
+                    
                     
                 }
+                
+                
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
 
-    private func searchCity() {
+    private func searchCity(cityForSearch: String) {
         Task {
-            let success = await weatherManager.fetchWeather(cityName: cityName)
+            let success = await weatherManager.fetchWeather(cityName: cityForSearch)
             DispatchQueue.main.async {
                 if success {
                     weatherManager.cityError = false
-                    currentCity = cityName
+                    currentCity = cityForSearch
                 } else {
                     currentCity = "No se encuentra ciudad"
                 }
