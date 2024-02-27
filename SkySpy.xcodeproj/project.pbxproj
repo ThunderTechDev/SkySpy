@@ -18,6 +18,7 @@
 		037694B42AD4A28B00086BA1 /* SkySpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */; };
 		037694B62AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */; };
 		03E972B92B1E86F3004D9457 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E972B82B1E86F3004D9457 /* WeatherModel.swift */; };
+		03E9945A2B8E9FE6009A7D74 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03E994592B8E9FE6009A7D74 /* Launch Screen.storyboard */; };
 		03FBEF042B17F668003C9783 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEF032B17F668003C9783 /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		037694B32AD4A28B00086BA1 /* SkySpyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITests.swift; sourceTree = "<group>"; };
 		037694B52AD4A28B00086BA1 /* SkySpyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySpyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		03E972B82B1E86F3004D9457 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		03E994592B8E9FE6009A7D74 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		03FBEF032B17F668003C9783 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +155,7 @@
 			children = (
 				0376949A2AD4A28900086BA1 /* ContentView.swift */,
 				0376949C2AD4A28A00086BA1 /* Assets.xcassets */,
+				03E994592B8E9FE6009A7D74 /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E9945A2B8E9FE6009A7D74 /* Launch Screen.storyboard in Resources */,
 				037694A02AD4A28A00086BA1 /* Preview Assets.xcassets in Resources */,
 				0376949D2AD4A28A00086BA1 /* Assets.xcassets in Resources */,
 			);
@@ -463,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SkySpy/Preview Content\"";
@@ -475,6 +480,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -487,6 +493,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -498,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SkySpy/Preview Content\"";
@@ -510,6 +518,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,6 +531,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
