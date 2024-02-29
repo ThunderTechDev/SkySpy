@@ -17,3 +17,8 @@ SkySpy is a simple and elegant SwiftUI app that provides up-to-date weather info
 - Integration of widgets for direct access to weather information from the home screen.
 - Option to customize the app's theme independently of the time of day.
 
+## Important Note
+
+Please note that if you download and attempt to run the app as-is, it will not function correctly because the personal Token to access the weather API has been modified. You will need to create your own Token at [OpenWeatherMap API](https://openweathermap.org/api) for the app to work properly.
+
+
