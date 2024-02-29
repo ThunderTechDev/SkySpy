@@ -8,6 +8,7 @@
 
 
 import SwiftUI
+import CoreLocation
 
 struct ContentView: View {
     
@@ -15,21 +16,32 @@ struct ContentView: View {
     @State private var cityName: String = ""
     @State private var currentCity: String = "City"
     @State private var placeHolder = "Enter the name of the city"
+    @State private var locationManager = LocationManager()
     @FocusState private var isFirstResponder: Bool
-
     
     
     
     var body: some View {
-        
         ZStack {
             backgroundImage
             mainContent
         }
+        
+        .onAppear() {
+            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { _ in
+                locationManager.locationManager.startUpdatingLocation()
+                searchCity(cityForSearch: locationManager.cityName)
+            }
+        }
+        .onChange(of: locationManager.cityName, {
+            searchCity(cityForSearch: locationManager.cityName)
+        })
         .onTapGesture {
             isFirstResponder = false
-        }.ignoresSafeArea(.keyboard, edges: .bottom)
+        }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
+    
     
     var mainContent: some View {
         VStack {
@@ -72,8 +84,9 @@ struct ContentView: View {
     
     var cityTextField: some View {
         HStack {
+            localPlaceButton
             TextField(placeHolder, text: $cityName, onCommit: {
-                searchCity()
+                searchCity(cityForSearch: cityName)
             })
             .autocorrectionDisabled()
             .padding(10)
@@ -90,7 +103,7 @@ struct ContentView: View {
     
     var searchButton: some View {
         Button(action: {
-            searchCity()
+            searchCity(cityForSearch: cityName)
         }) {
             Image(systemName: "magnifyingglass")
                 .font(.title)
@@ -105,7 +118,7 @@ struct ContentView: View {
             .font(.system(size: 70))
             .fontWeight(.bold)
             .foregroundColor(weatherManager.isDaytime  ? .black : .white)
-            
+        
         
     }
     
@@ -117,46 +130,69 @@ struct ContentView: View {
                     radius: 4)
     }
     
-    var imageArea: some View {
+    var localPlaceButton: some View {
+        Button(action: {
+            locationManager.locationManager.startUpdatingLocation()
+            searchCity(cityForSearch: locationManager.cityName)
+            
+        }) {Image(systemName: "mappin.and.ellipse")
+                .font(.title)
+                .foregroundColor(weatherManager.isDaytime  ? .black : .white)
+                .shadow(color: weatherManager.isDaytime == false ? .white : Color.black.opacity(0.5),
+                        radius: 6)
+        }
         
+    }
+    
+    var imageArea: some View {
         GeometryReader { geometry in
             ZStack {
-                if let imageName = weatherManager.currentWeather?.conditionName {
-                    // Imagen disponible
+                
+                RoundedRectangle(cornerRadius: 30)
+                    .stroke(lineWidth: 15)
+                    .foregroundColor(.gray)
+                Image("loadingImage.png")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                
+                
+                if weatherManager.cityError {
+                    
+                    Image("errorImage.png")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(lineWidth: 8)
+                        .foregroundColor(.gray)
+                    
+                } else if let imageName = weatherManager.currentWeather?.conditionName {
                     Image(weatherManager.isDaytime ? "\(imageName).png" : "\(imageName)_night.png")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: geometry.size.height)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                     
-                   
                     
-                    // Marco con sombra y borde cuando la imagen está presente
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(lineWidth: 8)
-                        .foregroundColor(.gray)
-                } else {
-                    // No hay imagen disponible
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(weatherManager.isDaytime == false ? UIColor.black : UIColor.white))
-                        .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
-                    
-                    // Marco con sombra y borde cuando no hay imagen
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(lineWidth: 8)
-                        .foregroundColor(.gray)
                 }
+                
+                
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
-    
-    private func searchCity() {
+
+    private func searchCity(cityForSearch: String) {
         Task {
-            let success = await weatherManager.fetchWeather(cityName: cityName)
+            let success = await weatherManager.fetchWeather(cityName: cityForSearch)
             DispatchQueue.main.async {
                 if success {
-                    currentCity = cityName
+                    weatherManager.cityError = false
+                    currentCity = cityForSearch
                 } else {
                     currentCity = "No se encuentra ciudad"
                 }
@@ -164,8 +200,12 @@ struct ContentView: View {
                 placeHolder = "Enter the name of the city"
             }
         }
+        
     }
+    
 }
+
+
 
 #Preview {
     ContentView()
